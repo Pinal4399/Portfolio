@@ -5,7 +5,8 @@ import { CgArrowBottomLeftO } from "react-icons/cg";
 import { Animate } from 'react-simple-animate';
 import './styles.scss';
 import { DiApple,DiAndroid } from 'react-icons/di';
-import { FaDev,FaDatabase } from 'react-icons/fa';
+import { FaDev,FaDatabase,FaGithub,FaLinkedin } from 'react-icons/fa';
+
 const personalDetails =[
 {
     label:"Name",
@@ -20,6 +21,10 @@ const personalDetails =[
     value:"pinalmansara4@gmail.com",
 
 },
+   {
+      label:"Follow Me",
+
+   }
 
 ];
  
@@ -78,6 +83,17 @@ const About=() => {
                         ))
                     }
                 </ul>
+                
+                <button className="btngit" onClick={() => window.open("https://github.com/Pinal4399/")}>
+                 GitHub <FaGithub />
+                   </button>
+                   <button className="btnlinked" onClick={() => window.open("https://www.linkedin.com/in/pinal-mansara/")}>
+                   Linkedin <FaLinkedin />
+                   </button>
+                <FaGithub onClick={() => window.open("https://github.com/Pinal4399/")} />
+                    <br />
+                    <FaLinkedin onClick={() => window.open("https://www.linkedin.com/in/pinal-mansara/")} /> 
+     
                 </Animate>
                </div>
                <div className="about__content__serviceWrapper"> 
