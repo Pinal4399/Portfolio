@@ -51,11 +51,7 @@ const Navbar = () => {
                 </div>
                 <ul
                     className={`navbar__container__menu ${toggleIcon ? "active" : ""}`}
-<<<<<<< HEAD
-                     onClick={handleToggleIcon}
-=======
                     onClick={handleToggleIcon}
->>>>>>> b837212 (chnage in conatct form)
                 >
                     {
                         data.map((item, key) => (
