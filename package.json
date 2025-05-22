@@ -2,6 +2,7 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
+
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@testing-library/jest-dom": "^5.17.0",
@@ -10,6 +11,7 @@
     "@tsparticles/react": "^3.0.0",
     "axios": "^1.8.4",
     "emailjs-com": "^3.2.0",
+    "express": "^5.1.0",
     "rc-progress": "^4.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

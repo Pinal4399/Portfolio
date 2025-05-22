@@ -8,12 +8,28 @@ import About from './containers/about';
 import Resume from './containers/resume';
 import Skills from './containers/skills';
 import Portfolio from './containers/portfolio';
-import Contact from './containers/contact';
+import Contact from './containers/contact/indexN';
 import Navbar from './components/navBar';
 //import particles from "./utils.js/particles"
 
+
+//import React, {useEffect } from 'react'
 function App() {
     
+/*
+
+    //user
+    const getUser=()=>{
+      fetch("/api/user")
+      .then(res=>res.json())
+      .then(json=>console.log(json))
+    }
+
+     useEffect(()=>{
+      getUser()
+     },[])
+
+*/
     const location = useLocation();
     console.log(location);
 
@@ -24,6 +40,11 @@ function App() {
  // const renderParticleJsHomePage=location.pathname==="/"; 
 
   return (
+
+
+
+
+
     <div className="App">
      {/* particles js*/}
 
@@ -46,6 +67,11 @@ function App() {
      </div>
     </div>
   );
+
+
+ 
+
+  
 }
 
 export default App;

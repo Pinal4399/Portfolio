@@ -2,11 +2,11 @@ import React from 'react';
 import PageHeaderContent from '../../components/pageHeaderContent';
 //import { BsInfoCircleFill } from 'react-icons/bs';
 import { Animate } from 'react-simple-animate';
-import {useState} from "react";
+import {useState,useRef} from "react";
 import './styles.scss';
 import { CgArrowBottomLeftO } from "react-icons/cg";
 import { useNavigate,Route} from 'react-router-dom';
-import axios from 'axios'; 
+//import axios from 'axios'; 
 import emailjs from '@emailjs/browser';
 import About from '../about/index';
 <Route path='/about' element={<About/>}/>
@@ -15,7 +15,7 @@ import About from '../about/index';
 
 const Result=()=>{
    return(
-    <p>Youe message has been sucessfully sent I will concat you soon</p>
+    <p>Youe message has been sucessfully sent I will contact you soon</p>
    )
 
 
@@ -25,11 +25,13 @@ const Result=()=>{
 const Contact=() => {
   //  const classes=useStyles();
     const [result,showResult]=useState(false)
+    const form=useRef();
   const sendEmail = (e) => {
     e.preventDefault();
-
+//e.target
+   console.log("send email part")
     emailjs
-      .sendForm('service_986vz1a', 'template_x1kprkj', e.target,'TDBJ0lRd_OTr6W6tz',
+      .sendForm('service_986vz1a', 'template_x1kprkj',form.current ,'TDBJ0lRd_OTr6W6tz',
       )
       .then(
         () => {
@@ -40,7 +42,7 @@ const Contact=() => {
         },
       );
 
-      e.target.reset();
+     // e.target.reset();
       showResult(false);
   };
 
@@ -59,13 +61,11 @@ const Contact=() => {
             [e.target.name]: e.target.value
         });
     };
-    
+   /* 
     const onFormSubmit=async(e)=>{
         e.preventDefault();
         try{
-            await axios.post(`http://localhost:8000/contact`,contact);
-            console.log(contact);
-            console.log("contact.....")
+          
             setStatus(true);
             navigate(<About/>);
         }catch(error){
@@ -77,7 +77,7 @@ const Contact=() => {
      }else{
         console.log("something is wrong");
      }
-
+*/
 
     return(
     <section id='contact' className='contact'>
@@ -132,7 +132,7 @@ icon={<CgArrowBottomLeftO size={40}/>}
         </div>
 
     </div>
-    <button onClick={(e)=>onFormSubmit(e)}>Submit</button>
+    <button ref={form} onClick={sendEmail}>Submit</button>
     <div className='row'>{result?<Result/>: null} </div>
  </div>
         </Animate>

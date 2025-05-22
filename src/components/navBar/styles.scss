@@ -6,6 +6,7 @@
     align-items: center;
     font-size: 1.2rem;
     position: sticky;
+    z-index: 1;
 
     &__container{
         display: flex;
@@ -68,7 +69,8 @@
         top: 80px;
         left:-110%;
         opacity:1;
-        transition:all 0.5s  ease;
+        transition:left 1s;
+       z-index:10;
 
         &.active{
             background: #181818;
@@ -88,5 +90,6 @@
         cursor: pointer;
         color:var(--yellow-theme-main-color);
         padding-right: 20px;
+        z-index:10;
     }
 }
