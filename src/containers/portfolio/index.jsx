@@ -2,11 +2,11 @@ import React from 'react';
 import PageHeaderContent from '../../components/pageHeaderContent';
 //import { BsInfoCircleFill } from 'react-icons/bs';
 import { CgArrowBottomLeftO } from "react-icons/cg";
-import ImageOne from '../..//images/school1.jpg';
-import ImageTwo from '../../images/giftshop.png';
+import ImageOne from '../..//images/dv2.png';
+import ImageTwo from '../../images/d2.png';
 import ImageThree from '../../images/d1.png';
-import ImageFour from '../../images/d1.png';
-import ImageFive from '../../images/image1.jpg';
+import ImageFour from '../../images/dv3.png';
+import ImageFive from '../../images/giftshop.png';
 import "./styles.scss";
 import {useState} from "react";
 
@@ -24,13 +24,13 @@ const portfolioData=[
      link:'',
   },
   {
-    id:2,
+    id:3,
     name:"Supplier Design",
     image:ImageThree,
      link:''
   },
   {
-    id:3,
+    id:2,
     name:"Todo App",
     image:ImageFour,
      link:''
