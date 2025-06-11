@@ -13,31 +13,31 @@ import {useState} from "react";
 const portfolioData=[
   {
     id:2,
-    name :"Ecommerce",
+    name :"Notes App",
     image :ImageOne,
     link:''
   },
   {
     id:3,
-    name:"Notes App",
+    name:"Menu List",
     image:ImageTwo,
      link:'',
   },
   {
     id:3,
-    name:"Supplier Design",
+    name:"Restaurant Design",
     image:ImageThree,
      link:''
   },
   {
     id:2,
-    name:"Todo App",
+    name:"Reservation Site",
     image:ImageFour,
      link:''
   },
   {
     id:3,
-    name:"Shopping Cart Design", 
+    name:"Shopping Cart", 
     image:ImageFive,
      link:''
   }

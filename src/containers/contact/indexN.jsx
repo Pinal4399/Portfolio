@@ -135,7 +135,7 @@ const Contact = () => {
                     }}
                 >
                     <div className="contact__content__form" >
-                        {Object.keys(formErrors).length === 0 && isSubmit?(<div className="ui message success"></div>):( <pre>{JSON.stringify(formValues, undefined, 2)}</pre>)}
+                    <pre>{JSON.stringify(formValues, undefined, 2)}</pre>
                        
                         <form ref={form} onSubmit={handleSubmit}>
                             <div className="contact__content__form__controlswrapper">
