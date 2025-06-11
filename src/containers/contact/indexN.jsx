@@ -2,7 +2,7 @@ import React from "react";
 import PageHeaderContent from "../../components/pageHeaderContent";
 //import { BsInfoCircleFill } from 'react-icons/bs';
 import { Animate } from "react-simple-animate";
-//import { useEffect } from "react";
+import { useState } from "react";
 import "./styles.scss";
 //import axios from 'axios'
 import { CgArrowBottomLeftO } from "react-icons/cg";
@@ -31,6 +31,17 @@ const defaultContactFormData={
 */
 
 const Contact = () => {
+
+    const initialValues = { name: "", email: "", description: "" };
+    const [formValues, setFormValues] = useState(initialValues);
+ 
+   const handleChange=(e)=>{
+   // console.log(e.target);
+    const{name,value}=e.target;
+    setFormValues({...formValues,[name]:value});
+    console.log(formValues);
+
+   }
     /*
         const [contact,setContact]=useState([])
             useEffect(()=>{
@@ -198,6 +209,8 @@ const Contact = () => {
                                         name="name"
                                         type={"text"}
                                         className="inputName"
+                                        value={formValues.name}
+                                        onChange={handleChange}
                                     // value={contact.name}
                                     //   onChange={handleInput}
                                     //onChange={(e)=>onTextFieldChange(e)}
@@ -212,6 +225,8 @@ const Contact = () => {
                                         name="email"
                                         type={"text"}
                                         className="inputEmail"
+                                        value={formValues.email}
+                                        onChange={handleChange}
                                     //  value={contact.email}
                                     //onChange={handleInput}
                                     // onChange={(e)=>onTextFieldChange(e)}
@@ -228,6 +243,8 @@ const Contact = () => {
                                         type={"text"}
                                         className="inputDescription"
                                         rows="5"
+                                        value={formValues.description}
+                                        onChange={handleChange}
                                     //  value={contact.description}
                                     // onChange={handleInput}
                                     //  onChange={(e)=>onTextFieldChange(e)}

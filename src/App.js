@@ -31,7 +31,7 @@ function App() {
 
 */
     const location = useLocation();
-    console.log(location);
+ //   console.log(location);
 
  // const handleInit=async(main)=>{
    // await loadFull(main); 

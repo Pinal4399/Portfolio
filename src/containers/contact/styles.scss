@@ -56,7 +56,8 @@
 
                     .nameLabel,
                     .emailLabel,
-                    .descriptionLabel{
+                    .descriptionLabel
+                    {
                         font-weight: 500;
                         position: absolute;
                         top:7px;
@@ -71,7 +72,10 @@
                     .inputDescription:focus{
                         outline: none;
                     }
-                    
+                     .error{
+                        color:yellow;
+                    }
+
                     .inputName:focus + .nameLabel,
                     .inputName:valid + .nameLabel,
                     .inputEmail:focus + .emailLabel,
