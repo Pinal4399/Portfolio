@@ -2,171 +2,105 @@ import React from "react";
 import PageHeaderContent from "../../components/pageHeaderContent";
 //import { BsInfoCircleFill } from 'react-icons/bs';
 import { Animate } from "react-simple-animate";
-import { useState } from "react";
+//import { useEffect } from "react";
 import "./styles.scss";
 //import axios from 'axios'
 import { CgArrowBottomLeftO } from "react-icons/cg";
 //import { useNavigate,Route} from 'react-router-dom';
 
-import emailjs from "@emailjs/browser";
 
+import emailjs from "@emailjs/browser";
+import { useState, useEffect } from "react";
+import { useRef } from "react";
+import toast from 'react-hot-toast';
 //import {useNavigate} from "react-router-dom";
 //import About from '../about/index';
 //<Route path='/about' element={<About/>}/>
 
-/*
-const Result=()=>{
-   return(
-    <p>Youe message has been sucessfully sent I will concat you soon</p>
-   )
-};
-*/
 
-/*
-const defaultContactFormData={
-    name:"",
-    email:"",
-    description:"",
-}
-*/
 
 const Contact = () => {
-
     const initialValues = { name: "", email: "", description: "" };
     const [formValues, setFormValues] = useState(initialValues);
- 
-   const handleChange=(e)=>{
-   // console.log(e.target);
-    const{name,value}=e.target;
-    setFormValues({...formValues,[name]:value});
-    console.log(formValues);
+    const [formErrors, setFormErrors] = useState({});
+    const [isSubmit, setIsSubmit] = useState(false);
+    const form=useRef();
 
-   }
-    /*
-        const [contact,setContact]=useState([])
-            useEffect(()=>{
-              axios.get('http://localhost:8000/getContacts')
-              .then(contact=>setContact(contact.data))
-              .catch(err=>console.log(err))
-    
-            },[])
-    
-    return(
-        <div>
-            <table>
-                <thead>
-    
-                </thead>
-                <tbody>
-                    {
-                        contact.map(user=>{
-                     return       <tr>
-                                <td>{contact.name}</td>
-                                <td>{contact.email}</td>
-                                <td>{contact.description}</td>
-                                </tr>
-                        })
-                    }
-                </tbody>
-            </table>
-        </div>
-    )
-    
-    */
-    /*
-      
-      useEffect(()=>{
-           
-          const fetchData=async()=>{
-              const res=await fetch('http://localhost:8000/getContacts')
-              const data=await res.json()
-              console.log("fontenddataaaaaaaaaaa",data)
-          }
-      
-      fetchData();
-      
-      },[])
-      return(
-          <></>
-      )
-      
-      */
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormValues({ ...formValues, [name]: value });
+    }
 
-    //  const classes=useStyles();
 
-    /*
-    
-      const[contact,setContact]=useState(defaultContactFormData);
-    
-    const navigate=useNavigate();
-    
-     const handleInput=(e)=>{
-        const name=e.target.name;
-        const value=e.target.value;
-    
-        setContact({
-            ...contact,
-            [name]:value,
-        });
-     }
-         
-    const handleSubmit=async (e)=>{
-    
-        e.preventDefault();
-        
-        console.log(contact);
-        try{
-        const response=await fetch("http://localhost:8000/contact",{
-            method:"POST",
-            headers:{
-                "Content-Type":"application/json"
-            },
-            body:JSON.stringify(contact),
-        })
-    
-        if(response.ok){
-            setContact(defaultContactFormData)
-            alert("message send successfully")
-    
-            navigate("/about");
+     const validate = (values) => {
+        const errors = {};
+        const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i;
+        if (!values.name) {
+            errors.name = "Name is required";
         }
-         
-    
-    
-        console.log(response)
-    }catch(error){
-        alert("message not send")
-        console.log("contact",error)
-    }
-    }
-    
-    */
+        if (!values.email) {
+            errors.email = "Email is required";
+          //  toast.error("email is required")
+        }else if(!regex.test(values.email)){
+            errors.email="This is not a valid email format"
+        }
+        if (!values.description) {
+            errors.description = "Description is required";
+        }
+        return errors;
+    };
 
-    //  const [result,showResult]=useState(false)
-    const sendEmail = (e) => {
-        e.preventDefault();
+    
+    const sendEmail = () => {
+      //  e.preventDefault();
+
 
         emailjs
             .sendForm(
                 "service_986vz1a",
                 "template_x1kprkj",
-                e.target,
+               form.current,
+                //  e.target,
                 "TDBJ0lRd_OTr6W6tz"
             )
             .then(
-                () => {
-                    console.log("SUCCESS!");
+                (result) => {
+                    console.log("SUCCESS!",result.text);
                     alert("Message sent successfully");
+                    setFormValues(initialValues);
                 },
                 (error) => {
                     console.log("FAILED...", error.text);
+                    alert("Failed to send message. Please try again");
                 }
             );
 
-        e.target.reset();
+     //   e.target.reset();
         // showResult(false);
     };
+  const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        const validationErrors = validate(formValues);
+        setFormErrors(validationErrors);
+        setIsSubmit(true);
 
+        if (Object.keys(validationErrors).length === 0) {
+            // Validation passed!
+            console.log("Form is valid. Sending email...");
+            sendEmail();
+        } else {
+            // Validation failed
+            console.log("Form has errors.  Email not sent.");
+        }
+    }
+  useEffect(() => {
+        console.log(formErrors)
+        if (Object.keys(formErrors).length === 0 && isSubmit) {
+            console.log(formValues);
+        }
+    },[formErrors,isSubmit, formValues])
+   
     return (
         <section id="contact" className="contact">
             <PageHeaderContent
@@ -200,12 +134,14 @@ const Contact = () => {
                         transform: "translate(0px)",
                     }}
                 >
-                    <div className="contact__content__form" onSubmit={sendEmail}>
-                        <form>
+                    <div className="contact__content__form" >
+                        {Object.keys(formErrors).length === 0 && isSubmit?(<div className="ui message success"></div>):( <pre>{JSON.stringify(formValues, undefined, 2)}</pre>)}
+                       
+                        <form ref={form} onSubmit={handleSubmit}>
                             <div className="contact__content__form__controlswrapper">
                                 <div>
                                     <input
-                                        required
+                                     //   required
                                         name="name"
                                         type={"text"}
                                         className="inputName"
@@ -215,13 +151,14 @@ const Contact = () => {
                                     //   onChange={handleInput}
                                     //onChange={(e)=>onTextFieldChange(e)}
                                     />
-                                    <label for="name" className="nameLabel">
+                                    <label htmlFor="name" className="nameLabel">
                                         Name
                                     </label>
                                 </div>
+                                {formErrors.name && <p className="error">{formErrors.name}</p>}
                                 <div>
                                     <input
-                                        required
+                                      //  required
                                         name="email"
                                         type={"text"}
                                         className="inputEmail"
@@ -231,14 +168,14 @@ const Contact = () => {
                                     //onChange={handleInput}
                                     // onChange={(e)=>onTextFieldChange(e)}
                                     />
-                                    <label for="email" className="emailLabel">
+                                    <label htmlFor="email" className="emailLabel">
                                         Email
                                     </label>
                                 </div>
-
+                               {formErrors.email && <p className="error">{formErrors.email}</p>}
                                 <div>
                                     <textarea
-                                        required
+                                     //   required
                                         name="description"
                                         type={"text"}
                                         className="inputDescription"
@@ -249,10 +186,11 @@ const Contact = () => {
                                     // onChange={handleInput}
                                     //  onChange={(e)=>onTextFieldChange(e)}
                                     />
-                                    <label for="description" className="descriptionLabel">
+                                    <label htmlFor="description" className="descriptionLabel">
                                         Description
                                     </label>
                                 </div>
+                                {formErrors.description && <p className="error">{formErrors.description}</p>}
                             </div>
                             <button>Submit</button>
                         </form>
