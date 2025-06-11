@@ -12,7 +12,7 @@ import { CgArrowBottomLeftO } from "react-icons/cg";
 import emailjs from "@emailjs/browser";
 import { useState, useEffect } from "react";
 import { useRef } from "react";
-import toast from 'react-hot-toast';
+
 //import {useNavigate} from "react-router-dom";
 //import About from '../about/index';
 //<Route path='/about' element={<About/>}/>
