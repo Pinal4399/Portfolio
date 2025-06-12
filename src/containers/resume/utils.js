@@ -10,13 +10,13 @@ export const data = {
             title:"Node js and React Developer,",
             subtitle:"YRHP INDIA",
             description: "Web Development, Built resuable components, GitHub repositories,A pplication development,Data protection",
-            duration:"2019-2021"
+            duration:"2020-2021"
         },
         {
-            title:"Administrator,",
+            title:"Web Develoepr,",
             subtitle:"YRHP INDIA",  
-            description: "Resolving hardware, software and network issues, Maintain decoumentions, Managed Company's IT system",
-            duration:"2017-2018"
+            description: "Designing, Developing, and Supporting new and existing secure websites and web applications.",
+            duration:"2018-2019"
 
         },
         
