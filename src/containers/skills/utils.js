@@ -45,10 +45,7 @@ export const skillsData = [
             skillName:"ASP .NET",
             percentage:"50",
         },
-        {
-            skillName:"Node js",
-            percentage:"50",
-        },
+       
      
     ],
 },

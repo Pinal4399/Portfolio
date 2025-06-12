@@ -90,9 +90,8 @@ const About=() => {
                    <button className="btnlinked" onClick={() => window.open("https://www.linkedin.com/in/pinal-mansara/")}>
                    Linkedin <FaLinkedin />
                    </button>
-                <FaGithub onClick={() => window.open("https://github.com/Pinal4399/")} />
-                    <br />
-                    <FaLinkedin onClick={() => window.open("https://www.linkedin.com/in/pinal-mansara/")} /> 
+                   
+               
      
                 </Animate>
                </div>

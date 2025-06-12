@@ -38,7 +38,7 @@ const Resume = () => {
                                     // date="2022 - 2023"
                                     icon={<MdWork/>}
                                     iconStyle={{
-                                        background:'#181818',
+                                        background:'white',
                                         color:'var(--yellow-theme-main-color)',
                                     }}
                                 >
@@ -81,7 +81,7 @@ const Resume = () => {
                                
                                 icon={<MdWork/>}
                                 iconStyle={{
-                                    background:'#181818',
+                                    background:'white',
                                     color:'var(--yellow-theme-main-color)',
                                 }}
                                

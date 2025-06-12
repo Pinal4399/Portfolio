@@ -4,7 +4,7 @@ export const data = {
             title:"Node.js and React Developer, ",
             subtitle:"Rejoicehub Solution",
             description: "Restful APIs, User Interfaces, Managed Database, Authentication, Error Handling",
-            duration:"2022-2023"
+            duration:"2022-2022"
         },
         {
             title:"Node js and React Developer,",
