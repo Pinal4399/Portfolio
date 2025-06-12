@@ -135,7 +135,7 @@ const Contact = () => {
                     }}
                 >
                     <div className="contact__content__form" >
-                    <pre>{JSON.stringify(formValues, undefined, 2)}</pre>
+               
                        
                         <form ref={form} onSubmit={handleSubmit}>
                             <div className="contact__content__form__controlswrapper">

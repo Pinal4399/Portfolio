@@ -20,6 +20,36 @@
             color:var(--yellow-theme-main-color);
             cursor: pointer;
         }
+
+   &__button{
+            background-color: #d2d2d2;
+            width: 70px;
+            height: 40px;
+            border-radius: 200px;
+            cursor: pointer;
+            position: relative;
+            //transition: 0.2s;
+          }
+          &__button::before{
+            position: absolute;
+            content: '';
+            background-color: #fff;
+            width:30px;
+            height:30px;
+            border-radius: 200px;
+            margin:5px; 
+            //transition: 0.2s;
+          }
+
+          input:checked + &__button{
+             background-color: #5f99be
+          }
+  
+           input:checked + &__button::before{
+            transform: translateX(30px);
+           }
+
+
        &__menu{
         display: flex;
         list-style:none;
@@ -51,7 +81,9 @@
 
         }
        }
-
+  input{
+            display:none;
+           }
     }
 }
 
@@ -73,7 +105,7 @@
        z-index:10;
 
         &.active{
-            background: #181818;
+            background: white;
             left: 0px;
             opacity: 1;
         }

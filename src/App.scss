@@ -5,3 +5,25 @@
     height: calc(100% - 80p);
    }
 }
+
+.dark-theme{
+   --main-heading:#5f99be;
+  --yellow-theme-sub-text-color:#fff;
+  --yellow-theme-background-color:#111b20;
+  --yellow-theme-nav-background-color:#111b20;
+   --yellow-theme-main-color:#5f99be;
+  --btn-bg-color:#5f99be; 
+  --btn-text-clr:#fff;
+  
+}
+
+.light-theme{
+   --main-heading:#5f99be;
+   --yellow-theme-sub-text-color:#333;
+  --yellow-theme-background-color:#fff;
+    --yellow-theme-nav-background-color:#fff;
+     --yellow-theme-main-color:#5f99be;
+    ---btn-bg-color:#111b20;
+   --btn-text-clr:#fff;
+  
+}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { HiX } from 'react-icons/hi';
 import { SiPrecommit } from "react-icons/si";
@@ -38,6 +38,19 @@ const Navbar = () => {
         setToggleIcon(!toggleIcon);
         //    setToggleIcon(false)
     };
+
+    const [theme, setTheme] = useState("light-theme");
+    const toggleTheme = () => {
+        if (theme === "dark-theme") {
+            setTheme("light-theme");
+        } else {
+            setTheme("dark-theme");
+        }
+    }
+    useEffect(() => {
+        document.body.className = theme;
+    }, [theme])
+
     return (
         <div>
             <nav className="navbar">
@@ -48,6 +61,7 @@ const Navbar = () => {
 
 
                     </Link>
+
                 </div>
                 <ul
                     className={`navbar__container__menu ${toggleIcon ? "active" : ""}`}
@@ -65,6 +79,8 @@ const Navbar = () => {
                         ))
                     }
                 </ul>
+                <input type="checkbox" id="check" href="#" onClick={() => toggleTheme()} />
+                <label for="check" class="navbar__container__button"></label>
                 <div className="nav-icon" onClick={handleToggleIcon}>
                     {
                         toggleIcon ? <HiX size={30} /> : <FaBars size={30} />
