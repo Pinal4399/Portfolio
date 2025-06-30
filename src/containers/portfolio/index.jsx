@@ -2,24 +2,47 @@ import React from 'react';
 import PageHeaderContent from '../../components/pageHeaderContent';
 //import { BsInfoCircleFill } from 'react-icons/bs';
 import { CgArrowBottomLeftO } from "react-icons/cg";
-import ImageOne from '../..//images/dv2.png';
+import ImageOne from '../..//images/dv3.png';
 import ImageTwo from '../../images/d2.png';
 import ImageThree from '../../images/d1.png';
-import ImageFour from '../../images/dv3.png';
+import ImageFour from '../../images/dv2.png';
 import ImageFive from '../../images/giftshop.png';
+import ImageSix from '../../images/img6.webp';
+import ImageSeven from '../../images/img7.avif';
+import ImageEight from '../../images/payroll.png';
+import ImageNine from '../../images/temp.jpg';
+import ImageTen from '../../images/machine.webp';
+
 import "./styles.scss";
 import {useState} from "react";
 
 const portfolioData=[
   {
+       id:4,
+     name:"Machine Learning Model",
+      content:"linear regression, decision tree regressor, random forest regressor, support vector machine, and gradient boosting regressor",
+     image:ImageTen,
+     link:''
+  },
+  {
+       id:4,
+     name:"Temperature Monitoring System",
+      content:"Raspberry pi, BME280 sensor,LED 5*5 Matrix,OpenStack",
+     image:ImageNine,
+     link:''
+  },
+  
+  {
     id:2,
-    name :"Notes App",
+    name :"Reservation Site",
+    content:"React + vite, Node.js, MongoDB ",
     image :ImageOne,
     link:''
   },
   {
     id:3,
     name:"Menu List",
+    content:"React + vite, Node.js",
     image:ImageTwo,
      link:'',
   },
@@ -27,20 +50,48 @@ const portfolioData=[
     id:3,
     name:"Restaurant Design",
     image:ImageThree,
+    content:"React + vite, Node.js",
      link:''
   },
   {
     id:2,
-    name:"Reservation Site",
+    name:"Notes App",
     image:ImageFour,
+    content:"React, Node.js, MongoDB ",
      link:''
   },
   {
     id:3,
     name:"Shopping Cart", 
+     content:"React, Node.js, MongoDB ",
     image:ImageFive,
      link:''
-  }
+  },
+  {
+    
+     id:2,
+     name:"Ecommerce Website",
+      content:"React, Node.js, MongoDB It's Alibaba Concept",
+     image:ImageSix,
+     link:''
+  },
+  {
+       id:4,
+     name:"Online Giftshop wesite",
+      content:"ASP.Net, SQLSever",
+     image:ImageSeven,
+     link:''
+  },
+{
+       id:4,
+     name:"Pyroll Management Software",
+      content:"VB.Net, SQLSever",
+     image:ImageEight,
+     link:''
+  },
+ 
+  
+
 ]
 
 const filterData=[
@@ -56,6 +107,10 @@ const filterData=[
     filterId:3,
     label:'Design'
   },
+  {
+    filterId:4,
+    label:'University Projects'
+  }
 ]
 
 const Portfolio=()=>{
@@ -125,6 +180,7 @@ console.log(filteredItems)
               <div>
                 <p>{item.name}</p>
                 <button>Visit</button>
+                 <p className='contents'>{item.content}</p>
                 </div>
             )
           }
