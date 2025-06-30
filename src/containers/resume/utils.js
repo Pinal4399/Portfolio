@@ -26,22 +26,27 @@ export const data = {
         {
             title:"MSc Advanced Computer Science level 7,",
             subtitle:"Leeds Beckett University, United Kingdom",
-            description:"Covid-19 factor analysis,Temperature Monitoring System leveraging the Raspberry Pi,Artificial Intelligence (AI), Machine Learning, Autonomous Systems, and Robotics Programming ",
+            description:"Machine Learning Based Impact Factor Analysis For Covid-19,Reacl-time Temperature Monitoring System leveraging the Raspberry Pi,Artificial Intelligence (AI), Machine Learning, Autonomous Systems,Robotics Programming, Networking, Smart System, Data Analysis ",
             duration:"2022-2023",
         },
         {
-            title:"Master in Advanced Computer Science,",
-            subtitle:"Indira Ganghi National Open University",
-            description: "Payroll Management System",
+            title:"Master of Computer Applications,",
+            subtitle:"Indira Gandhi National Open University, India",
+            description: "Payroll Management System, Computer Networking, Database management,Object Oriented Programming",
             duration:"2014-2016",
         },
         {
-            title:"Post Graduate Diploma in Advanced Computer Science,",
-            subtitle:"Indira Ganghi National Open University",
-            description: "Design and Analysis of Algorithms, Data Communication and Computer Networks, object Oriented Analysis and Design, Data Warehousing and Data Mining",
+            title:"Post Graduate Diploma of Computer Applications",
+            subtitle:"Indira Gandhi National Open University, India",
+            description: "Data Communication and Computer Networks, object Oriented Analysis and Design, Data Warehousing and Data Mining,Design and Analysis of Algorithms",
             duration:"2012-2013",
         },
-
+   {
+            title:"Bachelor of Computer Applications",
+            subtitle:"Veer Nermad South Gujarat University, India",
+            description: "Design and Analysis of Algorithms,DFD, Understanding and concept of all laungauges like C,C++,C#, JAVA, Pyhton, JavaScript, PHP, and .Net, SQL and NoSQL Databases",
+            duration:"2009-2012",
+        },
         
     ]
 

@@ -70,6 +70,27 @@ export const skillsData = [
             percentage:"60"
         },
     ]
+},
+{
+    label:"Other",
+    data:[
+        {
+            skillName:"Machine Learning",
+            percentage:"60",
+        },
+        {
+            skillName:"Artificial Intelligence",
+            percentage:"50",
+        },
+       
+        {
+            skillName:"Robotics",
+            percentage:"50",
+        },
+        {
+            skillName:"Smart System",
+            percentage:"60"
+        },
+    ]
 }
-
 ]
